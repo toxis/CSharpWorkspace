@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using BaseTests.Common;
 
 namespace BaseTests.Delegates
 {
