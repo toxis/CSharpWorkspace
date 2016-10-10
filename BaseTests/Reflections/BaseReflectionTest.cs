@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace BaseTests.Reflections
 {
     [TestFixture]
-    public class Test
+    public class BaseReflectionTest
     {
         private Entity<string> _entity;
         private const string HelloReflection = "Hello Reflection";

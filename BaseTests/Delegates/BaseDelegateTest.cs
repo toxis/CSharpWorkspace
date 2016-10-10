@@ -5,7 +5,7 @@ using BaseTests.Common;
 namespace BaseTests.Delegates
 {
     [TestFixture]
-    public class Test
+    public class BaseDelegateTest
     {
         [Test]
         public void DelegateTest()

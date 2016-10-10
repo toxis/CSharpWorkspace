@@ -51,10 +51,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Common\Entity.cs" />
-    <Compile Include="Delegates\Test.cs" />
+    <Compile Include="Delegates\BaseDelegateTest.cs" />
     <Compile Include="NUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reflections\Test.cs" />
+    <Compile Include="Reflections\BaseReflectionTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Tasks\" />
