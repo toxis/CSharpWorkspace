@@ -8,7 +8,7 @@ namespace BaseTests.Delegates
     public class BaseDelegateTest
     {
         [Test]
-        public void DelegateTest()
+        public void EventHandlerTest()
         {
             var entity = new Entity<string>();
             var initString = default(string);
