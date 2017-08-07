@@ -30,20 +30,20 @@ namespace BaseTests.Asynchronous
         public async Task LongComputation()
         {
             long test = 99999999;
-            var result1 = await Compute(test);
-            var result2 = await Compute(test);
+            var result1 = await Compute(test, 5000);
+            var result2 = await Compute(test, 100);
             Assert.AreEqual(result1, test);
             Assert.AreEqual(result2, test);
         }
 
-        private async Task<long> Compute(long counter)
+        private async Task<long> Compute(long counter, int delay)
         {
             long result = 0;
             for (long i = 0; i < counter; i++)
             {
                 result++;
             }
-            await Task.Delay(100);
+            await Task.Delay(delay);
             return result;
         }
 
