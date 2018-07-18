@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Moq;
+using NFluent;
 
 namespace BaseTests.Moq
 {
@@ -10,7 +11,7 @@ namespace BaseTests.Moq
         public void MultiplyCalculatorTest()
         {
             var calculator = Mock.Of<MoqCalculator>(c => c.Multiply(2, 2) == 4);
-            Assert.AreEqual(4, calculator.Pow2(2));
+            Check.That(calculator.Pow2(2)).IsEqualTo(4);
             // Be sure that Multiply method was called in Pow2 method
             Mock.Get(calculator).Verify(c => c.Multiply(2, 2));
         }

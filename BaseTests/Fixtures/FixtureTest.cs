@@ -1,4 +1,5 @@
 ﻿using AutoFixture;
+using NFluent;
 using NUnit.Framework;
 using System;
 using System.Linq;
@@ -16,13 +17,13 @@ namespace BaseTests.Fixtures
             var entities = fixture.Build<FixtureEntity>()
                 .Without(e => e.NotFixtureProperty)
                 .CreateMany(10);
-            Assert.AreEqual(10, entities.Count());
-            
+
+            Check.That(entities).CountIs(10);
             foreach (var entity in entities)
             {
-                Assert.NotNull(entity.StringProperty);
-                Assert.AreNotEqual(0, entity.IntProperty);
-                Assert.AreEqual(nameof(entity.NotFixtureProperty), entity.NotFixtureProperty);
+                Check.That(entity.StringProperty).IsNotNull();
+                Check.That(entity.IntProperty).IsStrictlyPositive().And.IsStrictlyGreaterThan(0);
+                Check.That(entity.NotFixtureProperty).IsEqualTo(nameof(entity.NotFixtureProperty));
             }
         }
     }

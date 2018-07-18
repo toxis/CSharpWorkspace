@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using NFluent;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,8 +23,8 @@ namespace BaseTests.Asynchronous
         {
             string destination = Path.Combine(_tempFolder, "README.md");
             await DownloadFileAsync(FileToDownload, destination);
-            Assert.That(File.Exists(destination));
-            Assert.AreEqual(ComputeMD5File(destination), Md5Hash);
+            Check.That(File.Exists(destination));
+            Check.Equals(ComputeMD5File(destination), Md5Hash);
         }
 
         [Test]
