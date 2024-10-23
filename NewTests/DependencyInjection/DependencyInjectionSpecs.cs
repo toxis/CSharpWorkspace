@@ -14,7 +14,7 @@ public class DependencyInjectionSpecs
             builder.RegisterType(type).As<IStringFormatter>();
         });
 
-        var formatter = container.Resolve<IStringFormatter>();
+        var formatter = AppContainer.Resolve<IStringFormatter>();
 
         Assert.That(formatter.Format("Hello"), Is.EqualTo(result));
     }

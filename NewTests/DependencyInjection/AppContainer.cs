@@ -4,7 +4,7 @@ namespace NewTests.DependencyInjection;
 
 public class AppContainer
 {
-    private IContainer _container;
+    private static IContainer _container;
 
     public void RegisterDependencies(Action<ContainerBuilder> action)
     {
@@ -13,7 +13,7 @@ public class AppContainer
         _container = builder.Build();
     }
 
-    public object Resolve(Type type) => _container.Resolve(type);
+    public static object Resolve(Type type) => _container.Resolve(type);
 
-    public T Resolve<T>() => _container.Resolve<T>();
+    public static T Resolve<T>() => _container.Resolve<T>();
 }
