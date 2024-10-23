@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 
 namespace BaseTests.Asynchronous
 {
-    [TestFixture]
     public class AsyncAwaitTest
     {
         private string _tempFolder;
@@ -33,8 +32,8 @@ namespace BaseTests.Asynchronous
             long test = 99999999;
             var result1 = await Compute(test, 5000);
             var result2 = await Compute(test, 100);
-            Assert.AreEqual(result1, test);
-            Assert.AreEqual(result2, test);
+            Assert.That(result1, Is.EqualTo(test));
+            Assert.That(result2, Is.EqualTo(test));
         }
 
         private async Task<long> Compute(long counter, int delay)

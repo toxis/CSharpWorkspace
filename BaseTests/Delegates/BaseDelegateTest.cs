@@ -1,10 +1,8 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using BaseTests.Common;
 
 namespace BaseTests.Delegates
 {
-    [TestFixture]
     public class BaseDelegateTest
     {
         [Test]
@@ -12,14 +10,14 @@ namespace BaseTests.Delegates
         {
             var entity = new Entity<string>();
             var initString = default(string);
-            Assert.AreEqual(entity.Data, initString);
+            Assert.That(entity.Data, Is.EqualTo(initString));
 
             var oldValue = initString;
             var newValue = "New Value";
             entity.ValueChanged += (s, e) =>
             {
-                Assert.AreEqual(e.OldValue, oldValue);
-                Assert.AreEqual(e.NewValue, newValue);
+                Assert.That(e.OldValue, Is.EqualTo(oldValue));
+                Assert.That(e.NewValue, Is.EqualTo(newValue));
             };
 
             entity.Data = newValue;

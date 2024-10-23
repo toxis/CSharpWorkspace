@@ -1,8 +1,6 @@
 ﻿using AutoFixture;
 using NFluent;
 using NUnit.Framework;
-using System;
-using System.Linq;
 
 namespace BaseTests.Fixtures
 {

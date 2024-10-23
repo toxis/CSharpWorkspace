@@ -1,14 +1,9 @@
 ﻿using BaseTests.Common;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BaseTests.Reflections
 {
-    [TestFixture]
     public class BaseReflectionTest
     {
         private Entity<string> _entity;
@@ -25,15 +20,16 @@ namespace BaseTests.Reflections
         public void PropertyTest()
         {
             var properties = _entity.GetType().GetProperties();
-            Assert.AreEqual(properties.Count(), 1);
+            Assert.That(properties.Count(), Is.EqualTo(1));
+
             var propertyInfo = properties.Single();
-            Assert.AreEqual(propertyInfo.Name, nameof(_entity.Data));
+            Assert.That(propertyInfo.Name, Is.EqualTo(nameof(_entity.Data)));
             var value = propertyInfo.GetValue(_entity);
-            Assert.AreEqual(value, HelloReflection);
+            Assert.That(value, Is.EqualTo(HelloReflection));
 
             var newValue = "New Value";
             propertyInfo.SetValue(_entity, newValue);
-            Assert.AreEqual(newValue, _entity.Data);
+            Assert.That(newValue, Is.EqualTo(_entity.Data));
         }
     }
 }
